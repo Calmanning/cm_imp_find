@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import Container from "./components/Container"
 
 export default function App() {
     return (
         <div>
-            <h1>Hey there</h1>
+            <Container> </Container>
         </div>
     )
 }
