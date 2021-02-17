@@ -1,10 +1,20 @@
 import React from 'react';
-import Container from "./components/Container"
+import Container from "./components/Container";
+import TableHead from "./components/TableHead";
 
-export default function App() {
+
+
+
+function App() {
     return (
-        <div>
-            <Container> </Container>
+       <div>
+            <Container>
+                
+            </Container>
+            <TableHead />
         </div>
+        
     )
 }
+
+export default App;
