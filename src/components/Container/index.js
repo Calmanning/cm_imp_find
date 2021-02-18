@@ -1,14 +1,14 @@
 import React, {Component} from "react";
-// import TableInfo from "../TableInfo/index"
+import "./container.css"
 
 function Container(){
 
     return (
         <div>
-<nav className="navbar navbar-light bg-dark">
-  <a className="navbar-brand" href="#">Navbar</a>
-  <a className="navbar-item" href="#">New list</a>
-  <a className="navbar-brand" href="#">Navbar</a>
+<nav className="navbar bg-dark">
+  <a className="navbar-brand" href="#"></a>
+  <a className="navbar-brand head" href="#">Here are Some Employees!</a>
+  <a className="navbar-brand" href="#"></a>
 </nav>
      
 

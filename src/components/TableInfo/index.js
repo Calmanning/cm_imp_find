@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import "./TableInfo.css"
 
 
  function TableInfo({ randos }) {
@@ -11,24 +11,26 @@ import React, {Component} from "react";
             <div className="row">
             <tbody>
 {randos[0] !== undefined && randos[0].name !== undefined ? (
-    randos.map(({ name, picture, email, dob }) => {
+    randos.map(({ name, picture, email, dob, cell }) => {
         return ( 
-
-        <tr key={name.first}>
-        <td>
-            <img src={picture.thumbnail} alt="faces of randoom"/>
-        </td>
-        <td>
-            {name.first} {name.last}
-        </td>
-        <td>
-            {email}
-        </td>
-        <td>
-            {dob.age}
-        </td>
+            <div className="container">
+            <div className="row imp" key={cell}>
         
-        </tr>
+        <div className="col-sm-1"> 
+            <img src={picture.thumbnail} alt="faces of randoom people "/>
+            </div>
+        <div className="col-sm-3"> 
+        {name.first} {name.last}
+            </div>
+        <div className="col-sm-4"> 
+        {email}
+            </div>
+        <div className="col-sm-3 age"> 
+        {dob.age}
+            </div>
+            
+        </div>
+        </div>
         )
     
     })

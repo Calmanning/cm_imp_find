@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/api";
 import TableInfo from "../TableInfo"
+import "./TableHead.css"
 
 
 export default class TableHead extends Component {
@@ -10,6 +11,7 @@ export default class TableHead extends Component {
         this.state = {
             randomUsers: [{}],
             filteredUsers: [{}],
+            impNames: [{}],
             sortedUsers: "descending",
 
 
@@ -52,23 +54,46 @@ export default class TableHead extends Component {
                 }
             },
 
-            sortAge: () => {
-                const list = this.state.filteredUsers
-                //console.log(list)
-                list.sort((a, b) => {
-                    if (a.dob.age > b.dob.age) {
-                        return -1
-                    } else if (a.dob.age < b.dob.age) {
-                        return 1
-                    } else {
-                        return 0
-                    }
-                })
-                this.setState({
-                    filteredUsers: list
-                })
+            sortNames: () => {
+                const nameList = this.state.filteredUsers
+                if (this.state.sortedUsers === "descending") {
+                    console.log("trying")
+                    console.log(this.state.filteredUsers)
+                    nameList.sort((a, b) => {
+                        if (a.name.first > b.name.first) {
+                            return -1
+                        } else if (a.name.first < b.name.first) {
+                            return 1
+                        } else {
+                            return 0
+                        }
+                    })
+                    this.setState({
+                        impNames: nameList
+                    })
+                    this.setState({
+                        sortedUsers: "ascending",
+                    })
+                } else {
+                    console.log("hey there")
+                    nameList.sort((a, b) => {
+                        if (a.name.first < b.name.first) {
+                            return -1
+                        } else if (a.name.first > b.name.first) {
+                            return 1
+                        } else {
+                            return 0
+                        }
+                    })
+                    this.setState({
+                        impNames: nameList
+                    })
+                    this.setState({
+                        sortedUsers: "descending",
+                    })
+                }
             },
-
+            
             handleSearchInput: event => {
                 console.log(event.target.value);
                 const filterText = event.target.value
@@ -87,7 +112,6 @@ export default class TableHead extends Component {
     }
 
     componentDidMount() {
-        console.log("it did!")
         API.getRandos().then(results => {
             console.log(results)
             this.setState({
@@ -99,24 +123,23 @@ export default class TableHead extends Component {
 
     render() {
         return (
-            <div>
-                <tr>
-                    <th>
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-4">
                         Search:
                     <input type="search" placeholder="enter a name or email" onChange={e => this.state.handleSearchInput(e)}>
                         </input>
-                    </th>
-                </tr>
-                <tr>
-
-                    <th>
-                        <td>Name</td>
-                        <td>Email</td>
-                        <td><a className="dropdown-item" onClick={this.state.sortRandos}>Age</a></td>
-
-                    </th>
-
-                </tr>
+                        </div>
+                        </div>
+               
+                <div className="row title-row">
+                
+                    <div className="col-sm-3 titles "> <a className="dropdown-item titles click" onClick={this.state.sortNames}>Name</a></div>
+                    <div className="col-sm-3 titles"> email</div>
+                    <div className="col-sm-3 titles "> <a className="dropdown-item titles click" onClick={this.state.sortRandos}>Age</a></div>
+                     
+                </div>
+                
 
                 <TableInfo
                     randos={this.state.filteredUsers}

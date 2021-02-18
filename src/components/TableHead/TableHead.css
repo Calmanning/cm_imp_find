@@ -1,0 +1,18 @@
+.titles{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-row{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.click{
+    font-weight: bold;
+    color: rgb(41, 96, 128);
+}

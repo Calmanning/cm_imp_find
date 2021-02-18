@@ -1,0 +1,15 @@
+tr {
+background-color: cornflowerblue;
+}
+
+.imp{
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.age{
+    display: flex;
+    justify-content: center;
+}
