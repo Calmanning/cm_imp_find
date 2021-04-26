@@ -6,6 +6,8 @@
 PROJECT DESCRIPTION
 Random employee list generator with a name/email search and sort functions. 
 
+Link to the deployed site: https://protected-tor-46211.herokuapp.com/
+
 ![](/public/pageIamge.bmp)
 
 ## Table of Contents
